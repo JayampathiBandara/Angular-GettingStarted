@@ -9,3 +9,8 @@ Angular: Getting Started by Deborah Kurata [Plural Sight]
     PS d> git config user.name "xxx"
     PS d> git config user.email "xxxthi@gmail.com"
     PS d> git config -l
+
+2.3 install Angular Cli
+    npm install -g @angular/cli
+
+    ng new Angular-GettingStarted
