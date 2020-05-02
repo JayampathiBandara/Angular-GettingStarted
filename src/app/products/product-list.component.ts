@@ -4,7 +4,7 @@ import { IProduct } from './product';
 @Component({
     selector: 'pm-products',
     templateUrl: './product-list.component.html',
-    styleUrls:['./product-list.component.css']
+    styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent {
     pageTitle: string = 'Product List';
@@ -12,9 +12,16 @@ export class ProductListComponent {
     imageMargin: number = 2;
 
     showImage: boolean = true;
-    filterText: string = 'cart';
+    _filterText: string;
+    get filterText(): string {
+        return this._filterText;
+    }
+    set filterText(value: string) {
+        this._filterText = value;
+        this.filteredProducts = this.filterText ? this.performFilter(this.filterText) : this.products;
+    }
 
-
+    filteredProducts: IProduct[];
     products: IProduct[] = [
         {
             "productId": 2,
@@ -37,6 +44,17 @@ export class ProductListComponent {
             "imageUrl": "assets/images/hammer.png"
         }
     ];
+    constructor() {
+        this.filteredProducts = this.products;
+        this.filterText = 'cart';
+    }
+
+    performFilter(filterBy: string): IProduct[] {
+        filterBy = filterBy.toLocaleLowerCase();
+        var filtLst=this.products.filter((product: IProduct) =>
+        product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1);
+        return filtLst;
+    }
 
     toggleImage(): void {
         this.showImage = !this.showImage;
