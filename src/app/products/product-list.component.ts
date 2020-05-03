@@ -51,12 +51,16 @@ export class ProductListComponent {
 
     performFilter(filterBy: string): IProduct[] {
         filterBy = filterBy.toLocaleLowerCase();
-        var filtLst=this.products.filter((product: IProduct) =>
-        product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1);
+        var filtLst = this.products.filter((product: IProduct) =>
+            product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1);
         return filtLst;
     }
 
     toggleImage(): void {
         this.showImage = !this.showImage;
+    }
+
+    onRatingClicked(message: string): void {
+        this.pageTitle = 'Product List :' + message;
     }
 }
