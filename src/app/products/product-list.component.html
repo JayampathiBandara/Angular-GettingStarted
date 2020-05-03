@@ -11,7 +11,7 @@
         </div>
         <div class='row'>
             <div class='col-md-2'>
-                <h4>Filtered by:  </h4>
+                <h4>Filtered by: </h4>
             </div>
             <div class='col-md-4,text-left'>{{filterText}}</div>
         </div>
@@ -37,12 +37,15 @@
                             <img *ngIf='showImage' [src]='product.imageUrl' [title]='product.productName | uppercase'
                                 [style.width.px]='imageWidth' [style.margin.px]='imageMargin' />
                         </td>
-                        <td>{{ product.productName }}</td>
+                        <td>
+                            <a [routerLink]="['/products',product.productId]">{{ product.productName }}</a>
+                        </td>
                         <td>{{ product.productCode |lowercase |convertToSpaces:'-'}}</td>
                         <td>{{ product.releaseDate }}</td>
                         <td>{{ product.price | currency:'USD':'symbol':'1.2-2'}}</td>
-                        <td><pm-star [rating]='product.starRating'
-                             (ratingClicked)='onRatingClicked($event)' ></pm-star></td>
+                        <td>
+                            <pm-star [rating]='product.starRating' (ratingClicked)='onRatingClicked($event)'></pm-star>
+                        </td>
                     </tr>
                 </tbody>
             </table>
