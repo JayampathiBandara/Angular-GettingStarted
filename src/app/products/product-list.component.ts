@@ -21,7 +21,8 @@ export class ProductListComponent implements OnInit {
         this._filterText = value;
         this.filteredProducts = this.filterText ? this.performFilter(this.filterText) : this.products;
     }
-
+    errorMessage: string;
+    
     filteredProducts: IProduct[];
     products: IProduct[];
 
@@ -36,7 +37,8 @@ export class ProductListComponent implements OnInit {
             next: products => {
               this.products = products;
               this.filteredProducts = this.products;
-            } 
+            },
+            error: err => this.errorMessage = err 
           });        
     }
 
