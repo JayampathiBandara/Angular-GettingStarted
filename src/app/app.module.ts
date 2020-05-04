@@ -8,13 +8,15 @@ import { WelcomeComponent } from './home/welcome.component';
 import { ProductModule } from './products/product.module';
 import { LoginComponent } from './User/login.component';
 
-import { FormsModule } from '@angular/forms'; // later use from shared module
+import { FormsModule } from '@angular/forms';
+import { MessageComponent } from './messages/message.component'; // later use from shared module
 //import { UserModule } from './User/user.module';
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    LoginComponent
+    LoginComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
