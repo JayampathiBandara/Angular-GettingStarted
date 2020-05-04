@@ -12,11 +12,16 @@ export class AppComponent {
   get isLoggedIn(): boolean {
     return this.authService.isLoggedIn;
   }
-  
+  get userName(): string {
+    if (this.authService.currentUser)
+      return this.authService.currentUser.userName;
+
+    return '';
+  }
   constructor(private authService: AuthService,
     private router: Router) { }
 
-  logOut():void{
+  logOut(): void {
     this.authService.logout();
     this.router.navigate(['/login']);
   }
