@@ -8,6 +8,7 @@ import { WelcomeComponent } from './home/welcome.component';
 import { ProductModule } from './products/product.module';
 import { LoginComponent } from './User/login.component';
 
+import { FormsModule } from '@angular/forms'; // later use from shared module
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,6 +18,7 @@ import { LoginComponent } from './User/login.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule, //// later from shared module,
     RouterModule.forRoot([
       { path: 'welcome', component: WelcomeComponent },
       { path: 'login', component: LoginComponent },

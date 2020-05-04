@@ -14,8 +14,11 @@ export class LoginComponent {
 
   constructor(private authService: AuthService,
     private router: Router) { }
-  
-    login() {
+
+  login(loginForm: NgForm) {
+    const userName = loginForm.form.value.userName;
+    const password = loginForm.form.value.password;
+    alert(userName + ' ' + password);
     this.authService.login();
     this.router.navigate(['/welcome']);
   }
