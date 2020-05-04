@@ -9,6 +9,7 @@ import { ProductModule } from './products/product.module';
 import { LoginComponent } from './User/login.component';
 
 import { FormsModule } from '@angular/forms'; // later use from shared module
+//import { UserModule } from './User/user.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { FormsModule } from '@angular/forms'; // later use from shared module
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
     ]),
-    ProductModule
+    ProductModule//,
+    //UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
