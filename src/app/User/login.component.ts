@@ -1,25 +1,26 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from './auth.service';
-import { Router } from '@angular/router';
 
 @Component({
-  //selector: 'app-login', login using router
+   //selector: 'app-login', login using router
   templateUrl: './login.component.html'
 })
 export class LoginComponent {
-
+  
   errorMessage: string;
   pageTitle = 'Log In';
 
-  constructor(private authService: AuthService,
-    private router: Router) { }
+  constructor(private authService: AuthService) { }
 
   login(loginForm: NgForm) {
-    const userName = loginForm.form.value.userName;
-    const password = loginForm.form.value.password;
-    alert(userName + ' ' + password);
-    this.authService.login();
-    this.router.navigate(['/welcome']);
+    if (loginForm && loginForm.valid) {
+      const userName = loginForm.form.value.userName;
+      const password = loginForm.form.value.password;
+      this.authService.login(userName, password);
+
+    } else {
+      this.errorMessage = 'Please enter a user name and password.';
+    }
   }
 }
