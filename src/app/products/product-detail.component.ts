@@ -20,6 +20,7 @@ export class ProductDetailComponent implements OnInit {
       'productId': id,
       'productName': 'Leaf Rake',
       'productCode': 'GDN-0011',
+      'category' :'tool',
       'releaseDate': 'March 19, 2019',
       'description': 'Leaf rake with 48-inch wooden handle.',
       'price': 19.95,

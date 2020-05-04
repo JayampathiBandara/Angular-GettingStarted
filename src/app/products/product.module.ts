@@ -9,7 +9,8 @@ import { ProductDetailComponent } from './product-detail.component';
 
 import { RouterModule } from '@angular/router';
 import { ProductDetailGuard } from './product-detail.guard';
-import { SharedModule } from '../shared/shared.module'; 
+import { SharedModule } from '../shared/shared.module';
+import { ProductEditComponent } from './product-edit/product-edit.component'; 
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [
     ProductListComponent,
     ProductDetailComponent,
-    ConvertToSpacesPipe
+    ConvertToSpacesPipe,
+    ProductEditComponent
   ]
 })
 export class ProductModule { }
