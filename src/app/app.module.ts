@@ -6,30 +6,27 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './home/welcome.component';
 import { ProductModule } from './products/product.module';
-import { LoginComponent } from './User/login.component';
 
 import { FormsModule } from '@angular/forms';
 import { MessageComponent } from './messages/message.component'; // later use from shared module
-//import { UserModule } from './User/user.module';
+import { UserModule } from './User/user.module';
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomeComponent,
-    LoginComponent,
+    WelcomeComponent,    
     MessageComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule, //// later from shared module,
+    FormsModule, 
     RouterModule.forRoot([
       { path: 'welcome', component: WelcomeComponent },
-      { path: 'login', component: LoginComponent },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
     ]),
-    ProductModule//,
-    //UserModule
+    ProductModule,
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
