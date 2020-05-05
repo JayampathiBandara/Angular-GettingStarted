@@ -20,11 +20,14 @@ export class ProductEditComponent {
     private router: Router) { }
                
 
-  ngOnInit(): void {
-    // + use to conver to number
-    let id = +this.activRoute.snapshot.paramMap.get('id');
-    this.getProduct(id);
-  }
+    ngOnInit(): void {
+      this.activRoute.paramMap.subscribe(
+        params => {
+          const id = +params.get('id');
+          this.getProduct(id);
+        }
+      );
+    }
   getProduct(id: number): void {
     this.productService.getProduct(id).subscribe({
       next: product => this.onProductRetrieved(product),
