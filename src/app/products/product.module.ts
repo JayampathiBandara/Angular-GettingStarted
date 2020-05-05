@@ -20,6 +20,10 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
         path: 'products/:id',
         canActivate: [ProductDetailGuard],
         component: ProductDetailComponent
+      },
+      {
+        path: 'products/:id/edit',
+        component: ProductEditComponent
       }
     ]),
     SharedModule  
