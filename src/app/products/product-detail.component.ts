@@ -38,5 +38,9 @@ export class ProductDetailComponent implements OnInit {
 
   onBack(): void {
     this.router.navigate(['/products']);
+    /*this.router.navigate(['/products'],
+    {
+      queryParams:{ filterBy: 'er',showImage:false}
+    }).*/
   }
 }
